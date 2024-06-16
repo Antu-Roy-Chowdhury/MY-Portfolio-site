@@ -1,3 +1,15 @@
+var moon = document.getElementById("moon");
+moon.onclick = function() {
+    document.body.classList.toggle("dark-theme");
+    if(document.body.classList.contains("dark-theme")) {
+        moon.src = "assets/images/sun.png";
+    }
+    else {
+        moon.src = "assets/images/moon.png";
+    }
+}
+
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction() {
     var x = document.getElementById("myNavMenu");
@@ -28,7 +40,7 @@ function myMenuFunction() {
 
 /* ----- TYPING EFFECT ----- */
    var typingEffect = new Typed('.typedText', {
-        strings: ["Student", "Web Developer", "Designer", "Memer Also"],
+        strings: ["Student", "Designer", "Developer", "Memer Also"],
         typeSpeed: 100,
         backSpeed: 80,
         backDelay: 2000,
