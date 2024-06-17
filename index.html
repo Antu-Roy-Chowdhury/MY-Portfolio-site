@@ -182,18 +182,21 @@
                        </div>
                    </div>
                    <div class="col">
+                    <form action="assets/php/data.php" method="POST" enctype="multipart/form-data">
                        <div class="form-control">
                            <div class="form-inputs">
-                               <input type="text" name="n" id="c_name" class="input-field" placeholder="Name">
-                               <input type="text" name="e" id="c_mail" class="input-field" placeholder="Email">
+                               <input type="text" name="name" id="c_name" class="input-field" placeholder="Name">
+                               <input type="text" name="email" id="c_mail" class="input-field" placeholder="Email">
                            </div>
                            <div class="text-area">
-                               <textarea name="m" id="c_message" class="input-msg" placeholder="Message"></textarea>
+                               <textarea name="message" id="c_message" class="input-msg" placeholder="Message"></textarea>
                            </div>
                            <div class="form-button">
-                               <button class="btn">Send<i class="uil uil-message"></i></button>
+                               <button name="submit" class="btn">Send<i class="uil uil-message"></i></button>
+                               <!-- hh -->
                            </div>
                        </div>
+                    </form>
                    </div>
                </div>
            </section>
