@@ -26,7 +26,8 @@
 	--first-shadow-color: rgba(255, 255, 255, 0.1);
 
 	--text-color-second: rgba(221, 220, 240, 0.8); 
-	--text-color-third: rgb(30, 159, 171);
+	--text-color-third: rgba(104, 198, 207, 0.604);
+	--text-color-t: rgb(30, 159, 171);
 
 	transition: 1s;
 }
@@ -67,7 +68,7 @@ html{
 	font-weight: 500;
 	padding: 12px 20px;
 	background: #efefef;
-	border: white 1px solid;
+	border: #777 1px solid;
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.5s;
@@ -78,7 +79,7 @@ html{
 .btn:hover{
 	background: var(--text-color-t);
 	color: var(--color-white);
-
+	border: none;
 	transition: 0.5s;
 }
 /* ----- GLOBAL ICONS DESIGN ----- */
@@ -272,16 +273,16 @@ nav{
 .image{
 	box-shadow: 0 2px 4px var(--first-shadow-color);
 	margin: auto 0;
-	width:300px;
-	height: 300px;
+	width:380px;
+	height: 380px;
 	border-radius: 55% 45% 55% 45%;
 	overflow: hidden;
 	animation: imgFloat 7s ease-in-out infinite;
 	
 }
 .image img{
-	width: 300px;
-	height: 300px;
+	width: 380px;
+	height: 380px;
 	object-fit: cover;
 }
 
@@ -369,12 +370,15 @@ h3{
 	right: 20px;
 	bottom: 20px;
 	background: var(--text-color-third);
-	color: var(--color-white);
+	color: var(--body-color-shade);
+	border: #777 1px solid;
 	border-radius: 30px;
 	transition: 0.2s;
 }
 .about-btn button:hover{
 	background: var(--text-color-t);
+	color: var(--moon);
+	border: none;
 	transition: 0.5s;
 }
 
@@ -405,7 +409,6 @@ h3{
 	padding: 2px 10px;
 	border-radius: 20px;
 	font-size: 14px;
-	border-radius: 5px;
 }
 
 /* ----- PROJECTS BOX ----- */
@@ -652,7 +655,9 @@ footer{
 		width: 100%;
 		order: 1;
 		justify-content: center;
-		min-height: 150px;
+		min-height: 250px;
+		margin: 2em;
+		padding: 5em;
 	}
 	
 	.nav-button, .mood{
@@ -661,6 +666,7 @@ footer{
 }
 	/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
 @media only screen and (max-width: 1024px) {	
+
 	.image, .image img{
 		width: 250px;
 		height: 250px;
@@ -730,12 +736,14 @@ footer{
 		width: 100%;
 		order: 1;
 		justify-content: center;
-		min-height: 150px;
+		min-height: 180px;
+		margin: 2em;
+		padding: 5em;
 	}
 	
 	.image, .image img{
-		width: 150px;
-		height: 150px;
+		width: 180px;
+		height: 180px;
 	}
 	.row{
 		display: flex;
