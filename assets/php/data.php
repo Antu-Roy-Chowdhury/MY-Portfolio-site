@@ -1,27 +1,29 @@
-<!-- Start a php code -->
 <?php
-
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-}
-
 // Database connection
 
-$servername = "localhost";
+if(isset($_POST['submit'])){
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+}
+$servername = "locallhot";
 $username = "root";
 $password ="";
-$dbname = "portfolio_response";
+$dbname = "portfolio";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error){
     die('Connection Failed : '.$conn->connect_error);
 }else{
-    $stmt = $conn->prepare("insert into visitor_reponse(Name, Email, Messages) values(?, ?, ?)");
+    $stmt = $conn->prepare("insert into visitor(Name, Email, Messages) values(?, ?, ?)");
     $stmt->bind_param("sss", $name, $email, $message);
-    $stmt->execute();
-    echo "Message Sent Successfully...";
-    $stmt->close();
-    $conn->close();
+    if ($stmt->execute()) {
+        echo 'success'; // Send success signal back to JavaScript
+      } else {
+        echo 'error'; // Send error signal back to JavaScript
+      }
+    
+      // Close the prepared statement and connection
+      $stmt->close();
+      $conn->close();
 }
 ?>

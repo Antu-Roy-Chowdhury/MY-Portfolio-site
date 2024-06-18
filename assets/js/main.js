@@ -8,7 +8,43 @@ moon.onclick = function() {
         moon.src = "assets/images/moon.png";
     }
 }
+// form 
+    const form = document.getElementById('myForm');
+    const submissionPopup = document.getElementById('hide');
 
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Send form data to PHP script using AJAX (optional, consider server-side processing for complex validation)
+      const formData = new FormData(this); // Collect form data
+      fetch('../php/data.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text()) // Handle response from PHP
+      .then(data => {
+        if (data === 'success') {
+              Swal.fire({
+                title: 'Thank You!',
+                text: 'Message Sent Successfully. I will contact you soon.',
+                icon: 'success',
+                confirmButtonText: 'Cool',
+                // customClass: "Custom_btn"
+              }); // Show success popup
+        } else {
+          // Handle submission error (optional, display error message)
+          Swal.fire({
+            title: 'Oops...',
+            text: 'Message is not sent!',
+            icon: 'error',
+            confirmButtonText: 'Try Agin'
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error); // Log errors for debugging
+      });
+    });
 
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction() {
